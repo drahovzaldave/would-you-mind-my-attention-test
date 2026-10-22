@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Would You Mind My Attention? — 15-second misinformation challenge</title>
+<style>
+:root{--bg:#0b0e11;--panel:#14191e;--panel2:#1b2229;--text:#f5f7fa;--muted:#a9b2bd;--red:#ff334b;--red2:#c91d34;--line:#303943;--green:#70d7a1;--cream:#f4f2ed}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid #fff;outline-offset:3px}.wrap{max-width:1080px;margin:auto;padding:0 22px}.topbar{height:72px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #222a32}.brand{font-weight:850;letter-spacing:-.04em;font-size:1.15rem}.brand span{color:var(--red)}.topnote{font-size:.86rem;color:var(--muted)}.screen{display:none;min-height:calc(100vh - 73px);padding:52px 0 64px}.screen.active{display:block}.eyebrow{color:var(--red);font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:46px;align-items:center}.hero h1{font-size:clamp(3.4rem,9vw,6.7rem);line-height:.88;letter-spacing:-.075em;margin:18px 0 24px}.hero h1 span{color:var(--red)}.lead{font-size:1.2rem;color:#d3d9df;max-width:570px}.muted{color:var(--muted)}.feature-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:28px 0}.feature{background:var(--panel);border:1px solid var(--line);padding:15px;border-radius:12px}.feature strong{display:block;font-size:1.15rem}.feature small{color:var(--muted)}.button{background:var(--red);color:white;border:0;border-radius:999px;padding:14px 24px;font-weight:800;transition:transform .15s,background .15s}.button:hover{background:#ff4c60;transform:translateY(-1px)}.button.secondary{background:transparent;border:1px solid #59636f;color:var(--text)}.button:disabled{opacity:.45;cursor:not-allowed;transform:none}.hero-art{background:radial-gradient(circle at 80% 20%,#3b1820,transparent 45%),linear-gradient(145deg,#191f26,#0e1115);border:1px solid var(--line);border-radius:24px;padding:30px;min-height:360px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 24px 70px #0005}.fake-post{background:#f7f8fa;color:#18202a;border-radius:15px;padding:18px;transform:rotate(2deg);box-shadow:0 15px 35px #0005}.post-head{display:flex;align-items:center;gap:10px}.avatar{width:40px;height:40px;border-radius:50%;background:#dce1e8;color:#17202a;display:grid;place-items:center;font-weight:900}.post-handle{font-size:.8rem;color:#647080}.post-copy{font-size:1.1rem;line-height:1.35;margin:16px 0}.fake-image{height:105px;border-radius:10px;background:linear-gradient(135deg,#303c4b,#7d2937);display:grid;place-items:center;color:white;font-size:2rem;font-weight:900;letter-spacing:.08em}.post-actions{display:flex;justify-content:space-between;color:#7a8491;font-size:.85rem;margin-top:14px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:20px}.section-head h2{margin:4px 0;font-size:1.5rem;letter-spacing:-.04em}.counter{color:var(--muted);font-weight:700}.progress{height:7px;background:#2b323a;border-radius:20px;overflow:hidden;margin:14px 0 24px}.progress span{display:block;height:100%;background:var(--red);width:0;transition:width .2s linear}.quiz-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);gap:22px;align-items:start}.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px}.social-post{background:#f7f8fa;color:#17202a;border-radius:14px;padding:22px}.post-source{font-weight:800}.claim{font-size:1.35rem;line-height:1.32;font-weight:700;letter-spacing:-.025em;margin:22px 0}.post-context{color:#5d6876;font-size:.9rem}.question{font-weight:800;margin:0 0 10px}.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:22px}.choice,.action-choice{border:1px solid #4a5662;border-radius:10px;background:#1b2229;color:var(--text);padding:12px;text-align:left}.choice:hover,.action-choice:hover{border-color:var(--red)}.choice.selected,.action-choice.selected{border-color:var(--red);background:#3a1b23;box-shadow:inset 0 0 0 1px var(--red)}.action-list{display:grid;gap:9px}.action-choice{display:flex;gap:10px;align-items:center}.action-choice span{font-size:1.15rem;width:24px;text-align:center}.timer{display:flex;align-items:center;gap:10px;font-variant-numeric:tabular-nums}.timer strong{font-size:1.5rem}.timer.urgent{color:var(--red)}.hint{font-size:.85rem;color:var(--muted);margin-top:14px}.quiz-controls{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:18px}.error{color:#ff8d9b;font-size:.88rem;min-height:1.2em}.results-hero{text-align:center;padding:30px 0}.score{font-size:clamp(3.8rem,9vw,6.5rem);font-weight:900;line-height:1;color:var(--red);letter-spacing:-.07em}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}.metric{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;text-align:center}.metric strong{display:block;font-size:1.8rem}.metric span{color:var(--muted);font-size:.86rem}.bars{display:grid;gap:14px;margin-top:18px}.barrow{display:grid;grid-template-columns:135px 1fr 44px;gap:12px;align-items:center;font-size:.92rem}.bar{height:10px;background:#2b323a;border-radius:20px;overflow:hidden}.bar span{display:block;height:100%;background:var(--red)}.review-list{display:grid;gap:12px;margin:22px 0}.review{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}.review-top{display:flex;justify-content:space-between;gap:12px;align-items:center}.pill{border-radius:99px;padding:4px 10px;font-size:.75rem;font-weight:800}.pill.good{background:#173a2a;color:#8ef0b8}.pill.bad{background:#451c24;color:#ff9eaa}.review h3{font-size:1rem;margin:10px 0}.review p{margin:7px 0;color:#c4ccd5}.flags{font-size:.9rem;color:#c4ccd5}.learn-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}.fine-card{background:var(--cream);color:#191919;border-radius:18px;padding:28px;transform:rotate(1deg);box-shadow:0 20px 45px #0005}.fine-card .stamp{border:3px solid #e32d43;color:#d6243b;font-weight:950;text-align:center;padding:12px;font-size:1.55rem;line-height:1.05;transform:rotate(-2deg);margin-bottom:22px}.fine-card h3{margin:0 0 10px;font-size:1.25rem}.fine-card p{font-size:.92rem}.rule-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:22px 0}.rule-step{border-top:2px solid var(--red);padding-top:12px}.rule-step b{display:block;font-size:1.15rem}.rule-step span{color:var(--muted);font-size:.85rem}.callout{border-left:3px solid var(--red);background:#21191d;padding:16px 18px;border-radius:0 12px 12px 0;margin:22px 0}.footer{border-top:1px solid #252c34;padding:18px 0;color:var(--muted);font-size:.8rem}.center{text-align:center}.small{font-size:.85rem}.hide{display:none!important}
+@media(max-width:760px){.wrap{padding:0 15px}.screen{padding:32px 0 44px}.hero,.quiz-grid,.learn-grid{grid-template-columns:1fr}.hero{gap:25px}.hero-art{min-height:280px}.hero h1{font-size:clamp(3.5rem,17vw,5.8rem)}.section-head{align-items:flex-start}.metrics{grid-template-columns:1fr}.metric{padding:12px}.metric strong{font-size:1.5rem}.barrow{grid-template-columns:110px 1fr 36px;gap:8px}.social-post{padding:17px}.claim{font-size:1.2rem}.fine-card{transform:none}.topnote{font-size:.75rem}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="topbar wrap">
+  <div class="brand">Would You Mind My Attention?</div>
+  <div class="topnote">A media-literacy field experiment · Prototype</div>
+</header>
+<main class="wrap">
+<section id="intro" class="screen active">
+  <div class="hero">
+    <div>
+      <div class="eyebrow">The 15-second challenge</div>
+      <h1>Would You<br>Mind My<br><span>Attention?</span></h1>
+      <p class="lead">Can you spot misinformation when the feed keeps moving? Test your instincts under time pressure, then learn how to slow the scroll.</p>
+      <div class="feature-grid">
+        <div class="feature"><strong>05 posts</strong><small>One quick decision at a time</small></div>
+        <div class="feature"><strong>15 seconds</strong><small>For both decisions per post</small></div>
+        <div class="feature"><strong>2 decisions</strong><small>Judge the claim + choose an action</small></div>
+        <div class="feature"><strong>Instant feedback</strong><small>Score, explanations and a practical rule</small></div>
+      </div>
+      <button class="button" id="startBtn">Start the test&nbsp; →</button>
+      <p class="muted small">No account. No data is sent or stored. Your answers stay in this browser session.</p>
+    </div>
+    <div class="hero-art" aria-label="Illustration of a social media post">
+      <div class="eyebrow">Your feed is moving</div>
+      <div class="fake-post">
+        <div class="post-head"><div class="avatar">!</div><div><strong>Daily Viral Update</strong><div class="post-handle">@dailyviral · just now</div></div></div>
+        <div class="post-copy">“BREAKING: New rule means every student gets €10,000. Claim it now!”</div>
+        <div class="fake-image">SHARE NOW?</div>
+        <div class="post-actions"><span>♡ 2.4K</span><span>↻ 816</span><span>↗ Share</span></div>
+      </div>
+      <div class="muted small">Urgency is a feeling—not evidence.</div>
+    </div>
+  </div>
+</section>
+
+<section id="quiz" class="screen">
+  <div class="section-head">
+    <div><div class="eyebrow">The challenge</div><h2>Make your call</h2></div>
+    <div class="counter" id="counter">Post 1 of 5</div>
+  </div>
+  <div class="progress" aria-label="Time remaining"><span id="timeBar"></span></div>
+  <div class="quiz-grid">
+    <article class="card">
+      <div class="section-head">
+        <div><div class="eyebrow">Social feed · simulated</div><h2 id="postCategory">Student life</h2></div>
+        <div class="timer" id="timer"><strong id="timeText">15</strong><span class="muted small">seconds</span></div>
+      </div>
+      <div class="social-post">
+        <div class="post-head"><div class="avatar" id="avatar">SV</div><div><div class="post-source" id="source">Student Voice</div><div class="post-handle" id="handle">@studentvoice · simulated post</div></div></div>
+        <div class="claim" id="claim"></div>
+        <div class="post-context" id="context"></div>
+        <div class="post-actions"><span>♡ Like</span><span>↻ Repost</span><span>↗ Share</span></div>
+      </div>
+      <p class="hint">These are fictional sample posts designed for a classroom exercise. Assess the claim, not the account’s appearance.</p>
+    </article>
+    <aside class="card">
+      <p class="question">1. What is your assessment?</p>
+      <div class="choice-grid">
+        <button class="choice" data-truth="true">Likely true</button>
+        <button class="choice" data-truth="false">Misinformation</button>
+      </div>
+      <p class="question">2. What would you do?</p>
+      <div class="action-list">
+        <button class="action-choice" data-action="share"><span>↗</span> Share &amp; like</button>
+        <button class="action-choice" data-action="skip"><span>»</span> Skip</button>
+        <button class="action-choice" data-action="verify"><span>⌕</span> Verify elsewhere</button>
+      </div>
+      <div class="quiz-controls">
+        <div class="error" id="quizError" aria-live="polite"></div>
+        <button class="button" id="submitBtn">Lock it in →</button>
+      </div>
+      <p class="hint">The 15-second clock covers both decisions. If time runs out, unanswered choices are recorded as blank.</p>
+    </aside>
+  </div>
+</section>
+
+<section id="results" class="screen">
+  <div class="results-hero">
+    <div class="eyebrow">Challenge complete</div>
+    <h1 style="font-size:clamp(2.6rem,7vw,4.7rem);letter-spacing:-.06em;margin:12px 0">Your instincts,<br><span style="color:var(--red)">under pressure.</span></h1>
+    <div class="score" id="score">0/5</div>
+    <p class="lead" style="margin:14px auto">correct assessments</p>
+  </div>
+  <div class="metrics">
+    <div class="metric"><strong id="accuracy">0%</strong><span>Accuracy</span></div>
+    <div class="metric"><strong id="avgTime">—</strong><span>Average seconds per post</span></div>
+    <div class="metric"><strong id="verifyCount">0/5</strong><span>Times you chose to verify</span></div>
+  </div>
+  <div class="card">
+    <h2>Your decision patterns</h2>
+    <p class="muted">How you said you would handle the posts.</p>
+    <div class="bars" id="actionBars"></div>
+  </div>
+  <div class="review-list" id="reviewList"></div>
+  <div class="center"><button class="button" id="learnBtn">See the bigger picture →</button></div>
+</section>
+
+<section id="learn" class="screen">
+  <div class="eyebrow">The bigger picture</div>
+  <h1 style="font-size:clamp(2.8rem,7vw,5rem);letter-spacing:-.065em;line-height:.98;margin:14px 0 28px">Your emergency brake:<br><span style="color:var(--red)">the 3-second rule.</span></h1>
+  <div class="learn-grid">
+    <div class="card">
+      <p class="lead" style="font-size:1.05rem">Anger, fear and excitement can push us to react before we check. The attention economy rewards content that captures attention and encourages quick engagement.</p>
+      <div class="rule-steps">
+        <div class="rule-step"><b>1. Stop</b><span>Pause for 3 seconds.</span></div>
+        <div class="rule-step"><b>2. Think</b><span>Notice the emotion. Don’t let it decide.</span></div>
+        <div class="rule-step"><b>3. Verify</b><span>Check a reliable, independent source.</span></div>
+      </div>
+      <div class="callout"><strong>Before you share, ask:</strong><br>Who is the original source? Is there independent confirmation? Is the date and context correct?</div>
+      <p class="muted small">A short pause does not guarantee accuracy—but it creates space to make a more deliberate choice.</p>
+    </div>
+    <div class="fine-card">
+      <div class="stamp">FINE FOR EXCEEDING<br>COGNITIVE SPEED</div>
+      <h3>Your feed wants a reaction.</h3>
+      <p>Fast scrolling leaves little time to assess evidence. Even students trained to analyse information can be influenced by urgency, emotion and repetition.</p>
+      <p><strong>Your fine:</strong> Take three seconds before you share. Verify the claim before you amplify it.</p>
+      <p style="border-top:1px solid #bbb;padding-top:12px;font-weight:800">STOP · THINK · VERIFY</p>
+    </div>
+  </div>
+  <div class="card" style="margin-top:22px">
+    <h2>What this test can—and cannot—tell us</h2>
+    <p class="muted">This short activity shows how you responded to five examples in a timed setting. It does not, by itself, prove that time pressure caused an error or that algorithms changed your thinking. To test that, researchers would need a comparison condition and a larger sample.</p>
+  </div>
+  <div class="center" style="margin-top:26px"><button class="button" id="restartBtn">Try again ↻</button></div>
+</section>
+</main>
+<footer class="footer"><div class="wrap">Would You Mind My Attention? · Educational prototype · Sample claims are fictional and intended for media-literacy practice. No personal data is collected.</div></footer>
+<script>
+const posts = [
+ {category:"Student life",source:"Student Voice",handle:"@studentvoice",avatar:"SV",claim:"“The EU has approved a €10,000 cash payment for every university student in 2026. Apply through this link today!”",context:"Urgent financial claim · no official source linked",truth:false,explanation:"There is no general EU-wide scheme that gives every university student €10,000. A claim about public funding should be traceable to an official EU institution or a credible news outlet.",flags:["A large promise with no named programme","Urgency: “today”","A link is not proof of legitimacy"]},
+ {category:"European Union",source:"Campus Europe",handle:"@campuseurope",avatar:"CE",claim:"“European Parliament elections take place every five years.”",context:"Institutional fact · check the official EU website",truth:true,explanation:"Members of the European Parliament are directly elected for five-year terms. The official European Parliament and EU election pages are appropriate places to confirm this.",flags:["Specific, checkable institutional fact","Can be confirmed through official EU sources"]},
+ {category:"Security",source:"World Alert Now",handle:"@worldalertnow",avatar:"WA",claim:"“NATO Article 5 means every ally must automatically declare war whenever one member is attacked.”",context:"Security claim · dramatic wording",truth:false,explanation:"Article 5 treats an armed attack against one or more allies as an attack against them all, but each ally takes the action it deems necessary, which may or may not involve armed force. “Automatically declare war” is inaccurate.",flags:["Overstates what the treaty requires","Leaves out important legal nuance","Check the treaty text itself"]},
+ {category:"Estonia",source:"Baltic Brief",handle:"@balticbrief",avatar:"BB",claim:"“Estonia became a member of the European Union on 1 May 2004.”",context:"Historical fact · independently verifiable",truth:true,explanation:"Estonia joined the EU on 1 May 2004, as part of the 2004 enlargement. This can be checked against official EU enlargement records.",flags:["Clear date and event","Verifiable in official historical records"]},
+ {category:"Media literacy",source:"Viral Watch",handle:"@viralwatch",avatar:"VW",claim:"“A screenshot of a headline is enough to prove a story is real—there is no need to find the original article.”",context:"Advice about verification · absolute wording",truth:false,explanation:"A screenshot can be cropped, edited, old or taken out of context. Find the original publication, check its date and author, and look for independent confirmation before treating a claim as reliable.",flags:["Treats an image as conclusive evidence","Ignores date and context","Discourages independent verification"]}
+];
+let index=0, answers=[], selectedTruth=null, selectedAction=null, timeLeft=15, startedAt=0, timerId=null, elapsedThisPost=0;
+const $=id=>document.getElementById(id);
+function show(id){document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));$(id).classList.add("active");window.scrollTo({top:0,behavior:"smooth"});}
+function start(){clearInterval(timerId);index=0;answers=[];show("quiz");loadPost();}
+function loadPost(){
+ selectedTruth=null;selectedAction=null;timeLeft=15;startedAt=Date.now();elapsedThisPost=0;
+ const p=posts[index];$("counter").textContent=`Post ${index+1} of ${posts.length}`;$("postCategory").textContent=p.category;$("source").textContent=p.source;$("handle").textContent=p.handle+" · simulated post";$("avatar").textContent=p.avatar;$("claim").textContent=p.claim;$("context").textContent=p.context;$("timeText").textContent=timeLeft;$("timeBar").style.width="100%";$("timer").classList.remove("urgent");$("quizError").textContent="";$("submitBtn").disabled=false;$("submitBtn").textContent="Lock it in →";
+ document.querySelectorAll(".choice,.action-choice").forEach(b=>b.classList.remove("selected"));
+ clearInterval(timerId);timerId=setInterval(tick,100);
+}
+function tick(){
+ timeLeft=Math.max(0,15-(Date.now()-startedAt)/1000);
+ $("timeText").textContent=Math.ceil(timeLeft);$("timeBar").style.width=(timeLeft/15*100)+"%";
+ $("timer").classList.toggle("urgent",timeLeft<=5);
+ if(timeLeft<=0){clearInterval(timerId);saveAnswer(true);}
+}
+function saveAnswer(timedOut=false){
+ if(!timedOut&&(selectedTruth===null||selectedAction===null)){$("quizError").textContent="Choose an assessment and an action first.";return;}
+ clearInterval(timerId);$("submitBtn").disabled=true;
+ const p=posts[index], seconds=Math.min(15,(Date.now()-startedAt)/1000);
+ answers.push({truth:selectedTruth,action:selectedAction,seconds,timedOut,correct:selectedTruth===p.truth});
+ if(index<posts.length-1){index++;setTimeout(loadPost, timedOut?500:250);}else{setTimeout(showResults, timedOut?500:250);}
+}
+function showResults(){
+ const correct=answers.filter(a=>a.correct).length;const avg=answers.reduce((s,a)=>s+a.seconds,0)/answers.length;
+ $("score").textContent=`${correct}/${posts.length}`;$("accuracy").textContent=Math.round(correct/posts.length*100)+"%";$("avgTime").textContent=avg.toFixed(1)+" s";$("verifyCount").textContent=answers.filter(a=>a.action==="verify").length+"/"+posts.length;
+ const actions=[["Share & like","share"],["Skip","skip"],["Verify elsewhere","verify"]];
+ $("actionBars").innerHTML=actions.map(([label,key])=>{const n=answers.filter(a=>a.action===key).length;return `<div class="barrow"><span>${label}</span><div class="bar"><span style="width:${n/posts.length*100}%"></span></div><strong>${Math.round(n/posts.length*100)}%</strong></div>`}).join("");
+ $("reviewList").innerHTML=posts.map((p,i)=>{const a=answers[i];let status=a.truth===null?"No assessment":a.correct?"Correct assessment":"Incorrect assessment";let cls=a.correct?"good":"bad";if(a.truth===null)cls="bad";const actionText={share:"Share & like",skip:"Skip",verify:"Verify elsewhere"};return `<article class="review"><div class="review-top"><span class="eyebrow">Post ${i+1} · ${p.category}</span><span class="pill ${cls}">${status}</span></div><h3>${p.claim}</h3><p><strong>Best assessment:</strong> ${p.truth?"Likely true":"Misinformation"}</p><p>${p.explanation}</p><p class="flags"><strong>What to notice:</strong> ${p.flags.join(" · ")}</p><p class="muted small">Your action: ${a.action?actionText[a.action]:"No action"}${a.timedOut?" · Time expired":""}</p></article>`}).join("");
+ show("results");
+}
+document.querySelectorAll(".choice").forEach(b=>b.addEventListener("click",()=>{selectedTruth=b.dataset.truth==="true";document.querySelectorAll(".choice").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");$("quizError").textContent="";}));
+document.querySelectorAll(".action-choice").forEach(b=>b.addEventListener("click",()=>{selectedAction=b.dataset.action;document.querySelectorAll(".action-choice").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");$("quizError").textContent="";}));
+$("startBtn").addEventListener("click",start);$("submitBtn").addEventListener("click",()=>saveAnswer(false));$("learnBtn").addEventListener("click",()=>show("learn"));$("restartBtn").addEventListener("click",start);
+</script>
+</body>
+</html>
